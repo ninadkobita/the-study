@@ -7,189 +7,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --ink: #0d0c0a;
-  --ink-soft: #1a1814;
-  --ink-muted: #2a2720;
-  --cream: #ede8dd;
-  --cream-dim: #b8b0a0;
-  --cream-faint: #d8d0c0;
-  --cream-ghost: rgba(232,225,210,0.06);
-  --gold: #b5892a;
-  --gold-soft: #cc9e3a;
-  --gold-pale: rgba(181,137,42,0.15);
-  --border: rgba(232,225,210,0.1);
-  --border-soft: rgba(232,225,210,0.06);
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Montserrat', sans-serif;
-  --sidebar-w: 270px;
-  --t: 0.2s ease;
+  --ink: #0d0c0a; --ink-soft: #1a1814; --cream: #ede8dd; --cream-dim: #b8b0a0;
+  --cream-faint: #d8d0c0; --cream-ghost: rgba(232,225,210,0.06);
+  --gold: #b5892a; --gold-soft: #cc9e3a; --gold-pale: rgba(181,137,42,0.15);
+  --border: rgba(232,225,210,0.1); --border-soft: rgba(232,225,210,0.06);
+  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Montserrat', sans-serif;
+  --sidebar-w: 270px; --t: 0.2s ease;
 }
-
 html, body { height: 100%; overflow: hidden; }
-
-body {
-  font-family: var(--serif);
-  background: var(--ink);
-  color: var(--cream);
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
+body { font-family: var(--serif); background: var(--ink); color: var(--cream); display: flex; flex-direction: column; height: 100vh; }
 
 /* TOPBAR */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  height: 54px;
-  border-bottom: 0.5px solid var(--border);
-  flex-shrink: 0;
-  background: var(--ink);
-  z-index: 50;
-}
-
-.wordmark {
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 300;
-  letter-spacing: 0.3em;
-  color: var(--cream);
-  text-transform: uppercase;
-  cursor: pointer;
-  user-select: none;
-}
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 54px; border-bottom: 0.5px solid var(--border); flex-shrink: 0; background: var(--ink); z-index: 50; }
+.wordmark { font-family: var(--serif); font-size: 17px; font-weight: 300; letter-spacing: 0.3em; color: var(--cream); text-transform: uppercase; cursor: pointer; user-select: none; }
 .wordmark em { font-style: normal; color: var(--gold); }
-
-.search-form {
-  display: flex;
-  align-items: center;
-  border: 0.5px solid rgba(232,225,210,0.18);
-  border-radius: 2px;
-  overflow: hidden;
-  width: 400px;
-  transition: border-color var(--t);
-}
+.search-form { display: flex; align-items: center; border: 0.5px solid rgba(232,225,210,0.18); border-radius: 2px; overflow: hidden; width: 400px; transition: border-color var(--t); }
 .search-form:focus-within { border-color: rgba(181,137,42,0.5); }
-
-.search-input {
-  background: rgba(232,225,210,0.04);
-  border: none;
-  outline: none;
-  color: var(--cream);
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  padding: 0 16px;
-  height: 36px;
-  flex: 1;
-}
+.search-input { background: rgba(232,225,210,0.04); border: none; outline: none; color: var(--cream); font-family: var(--sans); font-size: 11px; font-weight: 300; letter-spacing: 0.1em; padding: 0 16px; height: 36px; flex: 1; }
 .search-input::placeholder { color: rgba(200,192,174,0.35); }
-
-.search-btn {
-  background: rgba(181,137,42,0.12);
-  border: none;
-  border-left: 0.5px solid rgba(181,137,42,0.2);
-  color: var(--gold);
-  font-family: var(--sans);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 0 18px;
-  height: 36px;
-  cursor: pointer;
-  transition: background var(--t);
-  white-space: nowrap;
-}
+.search-btn { background: rgba(181,137,42,0.12); border: none; border-left: 0.5px solid rgba(181,137,42,0.2); color: var(--gold); font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 18px; height: 36px; cursor: pointer; transition: background var(--t); white-space: nowrap; }
 .search-btn:hover { background: rgba(181,137,42,0.22); }
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.topbar-link {
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-  cursor: pointer;
-  background: none;
-  border: none;
-  transition: color var(--t);
-}
+.topbar-right { display: flex; align-items: center; gap: 20px; }
+.topbar-link { font-family: var(--sans); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-dim); cursor: pointer; background: none; border: none; transition: color var(--t); }
 .topbar-link:hover { color: var(--cream); }
 
 /* LAYOUT */
 .layout { display: flex; flex: 1; overflow: hidden; }
 
 /* SIDEBAR */
-.sidebar {
-  width: var(--sidebar-w);
-  flex-shrink: 0;
-  border-right: 0.5px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.sidebar-section {
-  padding: 1.4rem 1.6rem 1rem;
-  border-bottom: 0.5px solid var(--border-soft);
-  flex-shrink: 0;
-}
-
-.s-label {
-  font-family: var(--sans);
-  font-size: 8px;
-  letter-spacing: 0.25em;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  opacity: 0.8;
-}
-
+.sidebar { width: var(--sidebar-w); flex-shrink: 0; border-right: 0.5px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+.sidebar-section { padding: 1.4rem 1.6rem 1rem; border-bottom: 0.5px solid var(--border-soft); flex-shrink: 0; }
+.s-label { font-family: var(--sans); font-size: 8px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; opacity: 0.8; }
 .era-list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
-
-.era-item {
-  font-family: var(--sans);
-  font-size: 10.5px;
-  font-weight: 300;
-  letter-spacing: 0.06em;
-  color: var(--cream-dim);
-  padding: 7px 10px;
-  cursor: pointer;
-  transition: all var(--t);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 1px;
-  border-left: 1.5px solid transparent;
-}
+.era-item { font-family: var(--sans); font-size: 10.5px; font-weight: 300; letter-spacing: 0.06em; color: var(--cream-dim); padding: 7px 10px; cursor: pointer; transition: all var(--t); display: flex; align-items: center; justify-content: space-between; border-radius: 1px; border-left: 1.5px solid transparent; }
 .era-item:hover { color: var(--cream); background: var(--cream-ghost); }
 .era-item.active { color: var(--cream); background: var(--gold-pale); border-left-color: var(--gold); padding-left: 8.5px; }
 .era-count { font-size: 9px; color: rgba(200,192,174,0.25); }
-
 .collection-header { padding: 1.4rem 1.6rem 0.8rem; border-bottom: 0.5px solid var(--border-soft); flex-shrink: 0; }
-
 .studied-scroll { flex: 1; overflow-y: auto; padding: 0.6rem 1.6rem 1rem; }
 .studied-scroll::-webkit-scrollbar { width: 2px; }
 .studied-scroll::-webkit-scrollbar-thumb { background: rgba(200,192,174,0.12); }
-
-.studied-artist {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 0.5px solid var(--border-soft);
-  cursor: pointer;
-  transition: all var(--t);
-}
+.studied-artist { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 0.5px solid var(--border-soft); cursor: pointer; transition: all var(--t); }
 .studied-artist:hover .sn { color: var(--cream); }
 .sn { font-family: var(--serif); font-size: 15px; font-weight: 300; color: var(--cream-dim); transition: color var(--t); }
 .se { font-family: var(--sans); font-size: 8.5px; font-weight: 300; color: rgba(200,192,174,0.3); letter-spacing: 0.04em; margin-top: 2px; }
@@ -204,18 +63,12 @@ body {
 
 /* HOME */
 #homeView { padding: 5rem 5rem 4rem; max-width: 860px; animation: fadeUp 0.5s ease; }
-
 .eyebrow { font-family: var(--sans); font-size: 8.5px; letter-spacing: 0.28em; color: var(--gold); text-transform: uppercase; margin-bottom: 2.2rem; opacity: 0.85; }
-
 .home-h1 { font-family: var(--serif); font-size: 58px; font-weight: 300; line-height: 1.08; color: var(--cream); letter-spacing: -0.015em; margin-bottom: 1.8rem; }
 .home-h1 em { font-style: italic; color: var(--gold-soft); }
-
 .home-intro { font-family: var(--sans); font-size: 11.5px; font-weight: 300; line-height: 1.9; color: var(--cream-dim); letter-spacing: 0.04em; max-width: 440px; margin-bottom: 3.5rem; }
-
 .rule { width: 44px; height: 0.5px; background: var(--gold); opacity: 0.5; margin-bottom: 3rem; }
-
 .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); max-width: 520px; border: 0.5px solid var(--border); }
-
 .feat-btn { background: var(--ink); padding: 1.2rem 1.4rem; cursor: pointer; transition: background var(--t); border: none; text-align: left; width: 100%; }
 .feat-btn:hover { background: var(--cream-ghost); }
 .feat-name { font-family: var(--serif); font-size: 20px; font-weight: 300; color: var(--cream); margin-bottom: 5px; }
@@ -224,24 +77,14 @@ body {
 /* LOADING */
 #loadingView { display: none; padding: 4rem 5rem; }
 #loadingView.on { display: block; }
-
-.skel {
-  background: linear-gradient(90deg, rgba(200,192,174,0.05) 25%, rgba(200,192,174,0.1) 50%, rgba(200,192,174,0.05) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-  border-radius: 1px;
-  margin-bottom: 16px;
-}
+.skel { background: linear-gradient(90deg, rgba(200,192,174,0.05) 25%, rgba(200,192,174,0.1) 50%, rgba(200,192,174,0.05) 75%); background-size: 200% 100%; animation: shimmer 2s infinite; border-radius: 1px; margin-bottom: 16px; }
 @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
 /* ERA VIEW */
 #eraView { display: none; animation: fadeUp 0.35s ease; }
 #eraView.on { display: block; }
-
 .era-hero { padding: 4rem 5rem 2.5rem; border-bottom: 0.5px solid var(--border); }
-
 .era-browse-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--border); margin: 2rem 5rem; border: 0.5px solid var(--border); }
-
 .era-art-btn { background: var(--ink); padding: 1.1rem 1.3rem; cursor: pointer; transition: background var(--t); border: none; text-align: left; width: 100%; }
 .era-art-btn:hover { background: var(--cream-ghost); }
 .era-art-name { font-family: var(--serif); font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 4px; }
@@ -250,15 +93,11 @@ body {
 /* ARTIST PAGE */
 #artistView { display: none; animation: fadeUp 0.4s ease; }
 #artistView.on { display: block; }
-
 .artist-hero { padding: 3.5rem 5rem 2.5rem; border-bottom: 0.5px solid var(--border); background: linear-gradient(180deg, rgba(181,137,42,0.03) 0%, transparent 100%); }
-
 .a-meta { font-family: var(--sans); font-size: 8.5px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; opacity: 0.8; }
 .a-name { font-family: var(--serif); font-size: 72px; font-weight: 300; line-height: 0.95; color: var(--cream); letter-spacing: -0.02em; margin-bottom: 0.7rem; }
 .a-dates { font-family: var(--serif); font-size: 20px; font-weight: 300; font-style: italic; color: var(--cream-dim); margin-bottom: 2rem; }
-
 .hero-acts { display: flex; align-items: center; gap: 10px; }
-
 .btn { font-family: var(--sans); font-size: 9px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; padding: 9px 20px; border-radius: 1px; cursor: pointer; transition: all var(--t); border: none; }
 .btn-ghost { background: rgba(232,225,210,0.06); color: var(--cream-dim); border: 0.5px solid rgba(232,225,210,0.18); }
 .btn-ghost:hover { background: rgba(232,225,210,0.1); color: var(--cream); }
@@ -268,36 +107,27 @@ body {
 
 /* KNOWLEDGE BODY */
 .k-body { display: grid; grid-template-columns: 1fr 300px; }
-
 .k-main { padding: 3.5rem 5rem; border-right: 0.5px solid var(--border-soft); }
-
 .k-aside { padding: 3rem 2rem 3rem 2.5rem; }
-
 .sec-label { font-family: var(--sans); font-size: 8px; letter-spacing: 0.24em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; opacity: 0.75; display: flex; align-items: center; gap: 12px; }
 .sec-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); max-width: 50px; }
-
 .prose { font-family: var(--serif); font-size: 17.5px; font-weight: 300; line-height: 1.82; color: var(--cream-faint); margin-bottom: 3rem; }
 .prose strong { font-weight: 500; color: var(--cream); }
-
 .ab { margin-bottom: 2.5rem; }
 .ab-label { font-family: var(--sans); font-size: 8px; letter-spacing: 0.22em; color: rgba(200,192,174,0.35); text-transform: uppercase; margin-bottom: 0.8rem; }
 .ab-item { padding: 7px 0; border-bottom: 0.5px solid var(--border-soft); }
 .ab-item strong { display: block; font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--cream); margin-bottom: 2px; }
 .ab-item span { font-family: var(--serif); font-size: 13px; font-style: italic; color: rgba(200,192,174,0.45); }
-
 .rel-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
 .rel-tag { font-family: var(--sans); font-size: 9.5px; font-weight: 300; letter-spacing: 0.05em; color: var(--cream-dim); border: 0.5px solid rgba(232,225,210,0.18); padding: 5px 11px; border-radius: 1px; cursor: pointer; transition: all var(--t); }
 .rel-tag:hover { color: var(--cream); border-color: rgba(181,137,42,0.4); background: var(--gold-pale); }
 
 /* WORKS */
 .works-band { padding: 2.5rem 5rem; border-top: 0.5px solid var(--border-soft); background: rgba(232,225,210,0.015); }
-
 .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-
 .work-card { cursor: pointer; border: 0.5px solid var(--border); border-radius: 1px; overflow: hidden; transition: border-color var(--t); }
 .work-card:hover { border-color: rgba(181,137,42,0.3); }
 .work-card.sel { border-color: var(--gold); }
-
 .work-img { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
 .work-info { padding: 11px 13px; background: var(--ink-soft); }
 .work-title { font-family: var(--serif); font-size: 13.5px; font-style: italic; color: var(--cream); margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -306,10 +136,8 @@ body {
 /* WORK DETAIL */
 .work-detail { display: none; padding: 2.5rem 5rem 3rem; border-top: 0.5px solid rgba(181,137,42,0.2); background: rgba(181,137,42,0.03); animation: fadeUp 0.3s ease; }
 .work-detail.on { display: block; }
-
 .wd-title { font-family: var(--serif); font-size: 28px; font-weight: 300; font-style: italic; color: var(--cream); margin-bottom: 0.4rem; }
 .wd-sub { font-family: var(--sans); font-size: 9.5px; font-weight: 300; color: var(--cream-dim); letter-spacing: 0.08em; margin-bottom: 2rem; }
-
 .wd-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
 .wd-block-label { font-family: var(--sans); font-size: 8px; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; opacity: 0.7; margin-bottom: 0.9rem; }
 .wd-block-content { font-family: var(--serif); font-size: 15.5px; font-weight: 300; line-height: 1.75; color: var(--cream-faint); }
@@ -326,9 +154,7 @@ body {
 <div class="topbar">
   <div class="wordmark" onclick="showHome()">The <em>Study</em></div>
   <div class="search-form">
-    <input class="search-input" id="searchInput" type="text"
-      placeholder="Search any artist — Max Ernst, Vermeer, Louise Bourgeois…"
-      onkeydown="if(event.key==='Enter')doSearch()" />
+    <input class="search-input" id="searchInput" type="text" placeholder="Search any artist — Max Ernst, Vermeer, Louise Bourgeois…" onkeydown="if(event.key==='Enter')doSearch()" />
     <button class="search-btn" onclick="doSearch()">Search</button>
   </div>
   <div class="topbar-right">
@@ -338,7 +164,6 @@ body {
 </div>
 
 <div class="layout">
-
   <aside class="sidebar">
     <div class="sidebar-section">
       <div class="s-label">Browse by Era</div>
@@ -369,30 +194,12 @@ body {
       <div class="rule"></div>
       <div class="eyebrow" style="margin-bottom:1.2rem;">Begin here</div>
       <div class="featured-grid">
-        <button class="feat-btn" onclick="loadArtist('Max Ernst')">
-          <div class="feat-name">Max Ernst</div>
-          <div class="feat-sub">1891–1976 · Dada / Surrealism</div>
-        </button>
-        <button class="feat-btn" onclick="loadArtist('Velázquez')">
-          <div class="feat-name">Velázquez</div>
-          <div class="feat-sub">1599–1660 · Spanish Baroque</div>
-        </button>
-        <button class="feat-btn" onclick="loadArtist('Agnes Martin')">
-          <div class="feat-name">Agnes Martin</div>
-          <div class="feat-sub">1912–2004 · Minimalism</div>
-        </button>
-        <button class="feat-btn" onclick="loadArtist('Paul Cézanne')">
-          <div class="feat-name">Cézanne</div>
-          <div class="feat-sub">1839–1906 · Post-Impressionism</div>
-        </button>
-        <button class="feat-btn" onclick="loadArtist('Käthe Kollwitz')">
-          <div class="feat-name">Käthe Kollwitz</div>
-          <div class="feat-sub">1867–1945 · Expressionism</div>
-        </button>
-        <button class="feat-btn" onclick="loadArtist('Giotto di Bondone')">
-          <div class="feat-name">Giotto</div>
-          <div class="feat-sub">c.1267–1337 · Proto-Renaissance</div>
-        </button>
+        <button class="feat-btn" onclick="loadArtist('Max Ernst')"><div class="feat-name">Max Ernst</div><div class="feat-sub">1891–1976 · Dada / Surrealism</div></button>
+        <button class="feat-btn" onclick="loadArtist('Velazquez')"><div class="feat-name">Velázquez</div><div class="feat-sub">1599–1660 · Spanish Baroque</div></button>
+        <button class="feat-btn" onclick="loadArtist('Agnes Martin')"><div class="feat-name">Agnes Martin</div><div class="feat-sub">1912–2004 · Minimalism</div></button>
+        <button class="feat-btn" onclick="loadArtist('Paul Cezanne')"><div class="feat-name">Cézanne</div><div class="feat-sub">1839–1906 · Post-Impressionism</div></button>
+        <button class="feat-btn" onclick="loadArtist('Kathe Kollwitz')"><div class="feat-name">Käthe Kollwitz</div><div class="feat-sub">1867–1945 · Expressionism</div></button>
+        <button class="feat-btn" onclick="loadArtist('Giotto di Bondone')"><div class="feat-name">Giotto</div><div class="feat-sub">c.1267–1337 · Proto-Renaissance</div></button>
       </div>
     </div>
 
@@ -403,17 +210,15 @@ body {
       <div class="skel" style="width:9%;height:9px;margin-bottom:1.4rem;"></div>
       <div class="skel" style="width:100%;height:14px;"></div>
       <div class="skel" style="width:92%;height:14px;"></div>
-      <div class="skel" style="width:85%;height:14px;"></div>
-      <div class="skel" style="width:95%;height:14px;margin-bottom:2.5rem;"></div>
+      <div class="skel" style="width:85%;height:14px;margin-bottom:2.5rem;"></div>
       <div class="skel" style="width:9%;height:9px;margin-bottom:1.4rem;"></div>
       <div class="skel" style="width:100%;height:14px;"></div>
       <div class="skel" style="width:88%;height:14px;"></div>
-      <div class="skel" style="width:93%;height:14px;"></div>
       <p style="font-family:var(--sans);font-size:10px;letter-spacing:0.1em;color:rgba(200,192,174,0.25);margin-top:2rem;" id="loadingMsg">Generating entry…</p>
     </div>
 
     <div class="error-note" id="errorView">
-      Could not generate entry. Please check that your ANTHROPIC_API_KEY environment variable is set in Netlify, then redeploy.
+      Could not generate entry. Please try again.
     </div>
 
     <div id="artistView">
@@ -426,63 +231,30 @@ body {
           <button class="btn btn-ghost" onclick="showHome()">← Home</button>
         </div>
       </div>
-
       <div class="k-body">
         <div class="k-main">
-          <div style="margin-bottom:3.2rem;">
-            <div class="sec-label">Historical & Socio-cultural Context</div>
-            <div class="prose" id="kContext">—</div>
-          </div>
-          <div style="margin-bottom:3.2rem;">
-            <div class="sec-label">Critical & Theoretical Framing</div>
-            <div class="prose" id="kTheory">—</div>
-          </div>
-          <div>
-            <div class="sec-label">Technique & Material Thinking</div>
-            <div class="prose" id="kTech">—</div>
-          </div>
+          <div style="margin-bottom:3.2rem;"><div class="sec-label">Historical & Socio-cultural Context</div><div class="prose" id="kContext">—</div></div>
+          <div style="margin-bottom:3.2rem;"><div class="sec-label">Critical & Theoretical Framing</div><div class="prose" id="kTheory">—</div></div>
+          <div><div class="sec-label">Technique & Material Thinking</div><div class="prose" id="kTech">—</div></div>
         </div>
         <div class="k-aside">
-          <div class="ab">
-            <div class="ab-label">Movement & Lineage</div>
-            <div id="abMovement">—</div>
-          </div>
-          <div class="ab">
-            <div class="ab-label">Key Influences</div>
-            <div id="abInfluence">—</div>
-          </div>
-          <div class="ab">
-            <div class="ab-label">Critical Thinkers</div>
-            <div id="abCritics">—</div>
-          </div>
-          <div class="ab">
-            <div class="ab-label">In Relation To</div>
-            <div class="rel-tags" id="abRelations"></div>
-          </div>
+          <div class="ab"><div class="ab-label">Movement & Lineage</div><div id="abMovement">—</div></div>
+          <div class="ab"><div class="ab-label">Key Influences</div><div id="abInfluence">—</div></div>
+          <div class="ab"><div class="ab-label">Critical Thinkers</div><div id="abCritics">—</div></div>
+          <div class="ab"><div class="ab-label">In Relation To</div><div class="rel-tags" id="abRelations"></div></div>
         </div>
       </div>
-
       <div class="works-band">
         <div class="sec-label">Selected Works</div>
         <div class="works-grid" id="worksGrid"></div>
       </div>
-
       <div class="work-detail" id="workDetail">
         <div class="wd-title" id="wdTitle">—</div>
         <div class="wd-sub" id="wdSub">—</div>
         <div class="wd-grid">
-          <div>
-            <div class="wd-block-label">Technical Analysis</div>
-            <div class="wd-block-content" id="wdTech">—</div>
-          </div>
-          <div>
-            <div class="wd-block-label">Contextual Reading</div>
-            <div class="wd-block-content" id="wdContext">—</div>
-          </div>
-          <div>
-            <div class="wd-block-label">Critical Reception</div>
-            <div class="wd-block-content" id="wdCritical">—</div>
-          </div>
+          <div><div class="wd-block-label">Technical Analysis</div><div class="wd-block-content" id="wdTech">—</div></div>
+          <div><div class="wd-block-label">Contextual Reading</div><div class="wd-block-content" id="wdContext">—</div></div>
+          <div><div class="wd-block-label">Critical Reception</div><div class="wd-block-content" id="wdCritical">—</div></div>
         </div>
       </div>
     </div>
@@ -500,329 +272,295 @@ body {
 </div>
 
 <script>
-const ERAS = {
+var ERAS = {
   'pre-renaissance': {
-    eyebrow: 'Pre-Renaissance · 1200–1400', h2: 'The Medieval Foundation',
-    desc: 'Byzantine influence, devotional image-making, the first stirrings of pictorial space and the human figure freed from gold ground.',
+    eyebrow: 'Pre-Renaissance 1200-1400', h2: 'The Medieval Foundation',
+    desc: 'Byzantine influence, devotional image-making, the first stirrings of pictorial space.',
     artists: [
-      { name: 'Giotto di Bondone', dates: 'c.1267–1337', move: 'Proto-Renaissance' },
-      { name: 'Duccio di Buoninsegna', dates: 'c.1255–1319', move: 'Sienese School' },
-      { name: 'Simone Martini', dates: 'c.1284–1344', move: 'Sienese Gothic' },
-      { name: 'Cimabue', dates: 'c.1240–1302', move: 'Late Byzantine' },
-      { name: 'Pietro Lorenzetti', dates: 'c.1280–1348', move: 'Sienese School' },
+      {name:'Giotto di Bondone',dates:'c.1267-1337',move:'Proto-Renaissance'},
+      {name:'Duccio di Buoninsegna',dates:'c.1255-1319',move:'Sienese School'},
+      {name:'Simone Martini',dates:'c.1284-1344',move:'Sienese Gothic'},
+      {name:'Cimabue',dates:'c.1240-1302',move:'Late Byzantine'}
     ]
   },
   'renaissance': {
-    eyebrow: 'Renaissance · 1400–1600', h2: 'The Recovery of the Human',
-    desc: 'Perspective, anatomy, humanism. The rediscovery of classical antiquity as a model for a new art in the service of both faith and the secular world.',
+    eyebrow: 'Renaissance 1400-1600', h2: 'The Recovery of the Human',
+    desc: 'Perspective, anatomy, humanism. The rediscovery of classical antiquity.',
     artists: [
-      { name: 'Leonardo da Vinci', dates: '1452–1519', move: 'High Renaissance' },
-      { name: 'Michelangelo', dates: '1475–1564', move: 'High Renaissance / Mannerism' },
-      { name: 'Raphael', dates: '1483–1520', move: 'High Renaissance' },
-      { name: 'Titian', dates: 'c.1488–1576', move: 'Venetian School' },
-      { name: 'Sandro Botticelli', dates: '1445–1510', move: 'Florentine' },
-      { name: 'Jan van Eyck', dates: 'c.1390–1441', move: 'Northern Renaissance' },
-      { name: 'Albrecht Dürer', dates: '1471–1528', move: 'Northern Renaissance' },
-      { name: 'Piero della Francesca', dates: 'c.1415–1492', move: 'Early Renaissance' },
+      {name:'Leonardo da Vinci',dates:'1452-1519',move:'High Renaissance'},
+      {name:'Michelangelo',dates:'1475-1564',move:'High Renaissance'},
+      {name:'Raphael',dates:'1483-1520',move:'High Renaissance'},
+      {name:'Titian',dates:'c.1488-1576',move:'Venetian School'},
+      {name:'Sandro Botticelli',dates:'1445-1510',move:'Florentine'},
+      {name:'Jan van Eyck',dates:'c.1390-1441',move:'Northern Renaissance'},
+      {name:'Albrecht Durer',dates:'1471-1528',move:'Northern Renaissance'},
+      {name:'Piero della Francesca',dates:'c.1415-1492',move:'Early Renaissance'}
     ]
   },
   'baroque': {
-    eyebrow: 'Baroque · 1600–1750', h2: 'Drama, Light, and Power',
-    desc: 'Theatricality, chiaroscuro, the body in motion. Art harnessed by the Counter-Reformation, by absolute monarchies, and by a new merchant class.',
+    eyebrow: 'Baroque 1600-1750', h2: 'Drama, Light, and Power',
+    desc: 'Theatricality, chiaroscuro, the body in motion.',
     artists: [
-      { name: 'Caravaggio', dates: '1571–1610', move: 'Baroque' },
-      { name: 'Diego Velázquez', dates: '1599–1660', move: 'Spanish Baroque' },
-      { name: 'Rembrandt van Rijn', dates: '1606–1669', move: 'Dutch Golden Age' },
-      { name: 'Johannes Vermeer', dates: '1632–1675', move: 'Dutch Golden Age' },
-      { name: 'Peter Paul Rubens', dates: '1577–1640', move: 'Flemish Baroque' },
-      { name: 'Artemisia Gentileschi', dates: '1593–c.1656', move: 'Baroque' },
-      { name: 'Nicolas Poussin', dates: '1594–1665', move: 'French Baroque / Classicism' },
+      {name:'Caravaggio',dates:'1571-1610',move:'Baroque'},
+      {name:'Diego Velazquez',dates:'1599-1660',move:'Spanish Baroque'},
+      {name:'Rembrandt van Rijn',dates:'1606-1669',move:'Dutch Golden Age'},
+      {name:'Johannes Vermeer',dates:'1632-1675',move:'Dutch Golden Age'},
+      {name:'Peter Paul Rubens',dates:'1577-1640',move:'Flemish Baroque'},
+      {name:'Artemisia Gentileschi',dates:'1593-1656',move:'Baroque'},
+      {name:'Nicolas Poussin',dates:'1594-1665',move:'French Baroque'}
     ]
   },
   'romanticism': {
-    eyebrow: 'Romanticism · 1780–1850', h2: 'Feeling Against Reason',
-    desc: 'The sublime landscape, emotional interiority, the revolt against Enlightenment rationality. The individual imagination as the supreme faculty.',
+    eyebrow: 'Romanticism 1780-1850', h2: 'Feeling Against Reason',
+    desc: 'The sublime landscape, emotional interiority, revolt against Enlightenment rationality.',
     artists: [
-      { name: 'Francisco Goya', dates: '1746–1828', move: 'Dark Romanticism' },
-      { name: 'Caspar David Friedrich', dates: '1774–1840', move: 'German Romanticism' },
-      { name: 'J.M.W. Turner', dates: '1775–1851', move: 'British Romanticism' },
-      { name: 'Théodore Géricault', dates: '1791–1824', move: 'French Romanticism' },
-      { name: 'Eugène Delacroix', dates: '1798–1863', move: 'French Romanticism' },
-      { name: 'William Blake', dates: '1757–1827', move: 'Visionary Romanticism' },
+      {name:'Francisco Goya',dates:'1746-1828',move:'Dark Romanticism'},
+      {name:'Caspar David Friedrich',dates:'1774-1840',move:'German Romanticism'},
+      {name:'JMW Turner',dates:'1775-1851',move:'British Romanticism'},
+      {name:'Theodore Gericault',dates:'1791-1824',move:'French Romanticism'},
+      {name:'Eugene Delacroix',dates:'1798-1863',move:'French Romanticism'},
+      {name:'William Blake',dates:'1757-1827',move:'Visionary Romanticism'}
     ]
   },
   'modernism': {
-    eyebrow: 'Modernism · 1860–1960', h2: 'The Century of Breaking',
-    desc: 'From Impressionism through Abstract Expressionism — the systematic dismantling of representation, the picture plane, and received tradition.',
+    eyebrow: 'Modernism 1860-1960', h2: 'The Century of Breaking',
+    desc: 'From Impressionism through Abstract Expressionism.',
     artists: [
-      { name: 'Paul Cézanne', dates: '1839–1906', move: 'Post-Impressionism' },
-      { name: 'Édouard Manet', dates: '1832–1883', move: 'Realism / Pre-Impressionism' },
-      { name: 'Claude Monet', dates: '1840–1926', move: 'Impressionism' },
-      { name: 'Pablo Picasso', dates: '1881–1973', move: 'Cubism' },
-      { name: 'Henri Matisse', dates: '1869–1954', move: 'Fauvism' },
-      { name: 'Wassily Kandinsky', dates: '1866–1944', move: 'Abstract' },
-      { name: 'Piet Mondrian', dates: '1872–1944', move: 'De Stijl' },
-      { name: 'Marcel Duchamp', dates: '1887–1968', move: 'Dada / Conceptual' },
-      { name: 'Max Ernst', dates: '1891–1976', move: 'Dada / Surrealism' },
-      { name: 'Mark Rothko', dates: '1903–1970', move: 'Abstract Expressionism' },
-      { name: 'Francis Bacon', dates: '1909–1992', move: 'Figurative Expressionism' },
-      { name: 'Käthe Kollwitz', dates: '1867–1945', move: 'Expressionism' },
-      { name: 'Giorgio de Chirico', dates: '1888–1978', move: 'Metaphysical Painting' },
+      {name:'Paul Cezanne',dates:'1839-1906',move:'Post-Impressionism'},
+      {name:'Edouard Manet',dates:'1832-1883',move:'Realism'},
+      {name:'Claude Monet',dates:'1840-1926',move:'Impressionism'},
+      {name:'Pablo Picasso',dates:'1881-1973',move:'Cubism'},
+      {name:'Henri Matisse',dates:'1869-1954',move:'Fauvism'},
+      {name:'Wassily Kandinsky',dates:'1866-1944',move:'Abstract'},
+      {name:'Piet Mondrian',dates:'1872-1944',move:'De Stijl'},
+      {name:'Marcel Duchamp',dates:'1887-1968',move:'Dada'},
+      {name:'Max Ernst',dates:'1891-1976',move:'Surrealism'},
+      {name:'Mark Rothko',dates:'1903-1970',move:'Abstract Expressionism'},
+      {name:'Francis Bacon',dates:'1909-1992',move:'Figurative Expressionism'},
+      {name:'Kathe Kollwitz',dates:'1867-1945',move:'Expressionism'},
+      {name:'Giorgio de Chirico',dates:'1888-1978',move:'Metaphysical Painting'}
     ]
   },
   'contemporary': {
-    eyebrow: 'Contemporary · 1960–Now', h2: 'After the Object',
-    desc: 'Conceptual, post-minimal, identity, institutional critique. Art that turns its gaze on its own conditions of production and reception.',
+    eyebrow: 'Contemporary 1960-Now', h2: 'After the Object',
+    desc: 'Conceptual, post-minimal, identity, institutional critique.',
     artists: [
-      { name: 'Agnes Martin', dates: '1912–2004', move: 'Minimalism' },
-      { name: 'Gerhard Richter', dates: 'b.1932', move: 'Photo-Painting / Abstraction' },
-      { name: 'Cindy Sherman', dates: 'b.1954', move: 'Conceptual / Photography' },
-      { name: 'Cy Twombly', dates: '1928–2011', move: 'Abstract / Post-Modern' },
-      { name: 'Louise Bourgeois', dates: '1911–2010', move: 'Sculpture / Psychoanalytic' },
-      { name: 'Anselm Kiefer', dates: 'b.1945', move: 'Neo-Expressionism' },
-      { name: 'Bruce Nauman', dates: 'b.1941', move: 'Conceptual / Post-Minimal' },
-      { name: 'Marlene Dumas', dates: 'b.1953', move: 'Figurative / Expressionist' },
+      {name:'Agnes Martin',dates:'1912-2004',move:'Minimalism'},
+      {name:'Gerhard Richter',dates:'b.1932',move:'Photo-Painting'},
+      {name:'Cindy Sherman',dates:'b.1954',move:'Conceptual'},
+      {name:'Cy Twombly',dates:'1928-2011',move:'Abstract'},
+      {name:'Louise Bourgeois',dates:'1911-2010',move:'Sculpture'},
+      {name:'Anselm Kiefer',dates:'b.1945',move:'Neo-Expressionism'},
+      {name:'Bruce Nauman',dates:'b.1941',move:'Conceptual'},
+      {name:'Marlene Dumas',dates:'b.1953',move:'Figurative'}
     ]
   }
 };
 
-let currentArtist = null;
-let studied = [];
-let favourites = new Set();
+var currentArtist = null;
+var studied = [];
+var favourites = {};
 
 function show(id) {
-  ['homeView','loadingView','artistView','eraView','errorView'].forEach(v => {
-    const el = document.getElementById(v);
+  var views = ['homeView','loadingView','artistView','eraView','errorView'];
+  for (var i = 0; i < views.length; i++) {
+    var el = document.getElementById(views[i]);
     if (el) el.style.display = 'none';
-  });
-  const t = document.getElementById(id);
-  if (t) t.style.display = 'block';
+  }
+  var target = document.getElementById(id);
+  if (target) target.style.display = 'block';
 }
 
 function showHome() {
   show('homeView');
-  document.querySelectorAll('.era-item').forEach(e => e.classList.remove('active'));
+  var items = document.querySelectorAll('.era-item');
+  for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
 }
 
 function showEra(era) {
   show('eraView');
-  document.querySelectorAll('.era-item').forEach(e => e.classList.remove('active'));
-  const el = document.querySelector(`[data-era="${era}"]`);
-  if (el) el.classList.add('active');
+  var items = document.querySelectorAll('.era-item');
+  for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
+  var active = document.querySelector('[data-era="' + era + '"]');
+  if (active) active.classList.add('active');
 
-  let artists, eyebrow, h2, desc;
+  var artists, eyebrow, h2, desc;
   if (era === 'all') {
-    artists = Object.values(ERAS).flatMap(e => e.artists);
+    artists = [];
+    var keys = Object.keys(ERAS);
+    for (var k = 0; k < keys.length; k++) {
+      artists = artists.concat(ERAS[keys[k]].artists);
+    }
     eyebrow = 'All Periods'; h2 = 'The Western Canon';
     desc = 'Pre-Renaissance through to the contemporary. Browse the full arc.';
   } else {
-    const d = ERAS[era];
+    var d = ERAS[era];
     artists = d.artists; eyebrow = d.eyebrow; h2 = d.h2; desc = d.desc;
   }
 
   document.getElementById('eraEyebrow').textContent = eyebrow;
   document.getElementById('eraH2').textContent = h2;
   document.getElementById('eraDesc').textContent = desc;
-  document.getElementById('eraBrowseGrid').innerHTML = artists.map(a => `
-    <button class="era-art-btn" onclick="loadArtist('${a.name.replace(/'/g,"\\'")}')">
-      <div class="era-art-name">${a.name}</div>
-      <div class="era-art-dates">${a.dates} · ${a.move}</div>
-    </button>
-  `).join('');
+
+  var html = '';
+  for (var j = 0; j < artists.length; j++) {
+    var a = artists[j];
+    html += '<button class="era-art-btn" onclick="loadArtist(\'' + a.name.replace(/'/g, "\\'") + '\')">';
+    html += '<div class="era-art-name">' + a.name + '</div>';
+    html += '<div class="era-art-dates">' + a.dates + ' · ' + a.move + '</div>';
+    html += '</button>';
+  }
+  document.getElementById('eraBrowseGrid').innerHTML = html;
 }
 
 function doSearch() {
-  const val = document.getElementById('searchInput').value.trim();
+  var val = document.getElementById('searchInput').value.trim();
   if (!val) return;
   document.getElementById('searchInput').value = '';
   loadArtist(val);
 }
 
-async function loadArtist(name) {
+function loadArtist(name) {
   show('loadingView');
-  document.getElementById('loadingMsg').textContent = `Building entry for ${name}…`;
+  document.getElementById('loadingMsg').textContent = 'Building entry for ' + name + '...';
 
-  const prompt = `You are an art historian. Write a knowledge entry for: ${name}.
+  var prompt = 'You are an art historian. Write a knowledge entry for the artist: ' + name + '. Return ONLY valid JSON with no markdown, no code fences, no extra text before or after. Use exactly this structure: {"name":"Full name","dates":"birth-death","era":"Era name","movement":"Primary movement","heroMeta":"Nationality, Era, Movement","context":"Two sentences of historical and socio-cultural context.","theory":"Two sentences of critical and theoretical framing.","technique":"Two sentences on technical practice and material thinking.","movements":["Movement 1","Movement 2"],"influences":["Name, nature of influence","Name, nature of influence","Name, nature of influence"],"critics":["Name, key contribution","Name, key contribution"],"relations":["Artist name","Artist name","Artist name","Artist name"],"works":[{"title":"Work title","year":"Year","medium":"Medium","color":"#hexcode","technical":"One sentence technical analysis.","contextual":"One sentence contextual reading.","critical":"One sentence on critical reception."}]} Include exactly 3 works. The color hex should reflect each work\'s actual palette.';
 
-Return ONLY valid JSON, no markdown, no extra text:
-{
-  "name": "Full name",
-  "dates": "birth–death",
-  "era": "Era",
-  "movement": "Movement",
-  "heroMeta": "Nationality · Era · Movement",
-  "context": "2 sentences of historical context.",
-  "theory": "2 sentences of critical and theoretical framing.",
-  "technique": "2 sentences on technical practice.",
-  "movements": ["Movement 1", "Movement 2"],
-  "influences": ["Name · influence", "Name · influence", "Name · influence"],
-  "critics": ["Name · contribution", "Name · contribution"],
-  "relations": ["Artist", "Artist", "Artist", "Artist"],
-  "works": [
-    {
-      "title": "Title",
-      "year": "Year",
-      "medium": "Medium",
-      "color": "#hex",
-      "technical": "1 sentence technical analysis.",
-      "contextual": "1 sentence contextual reading.",
-      "critical": "1 sentence critical reception."
+  fetch('/api/claude', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({messages: [{role: 'user', content: prompt}]})
+  })
+  .then(function(res) {
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  })
+  .then(function(data) {
+    var raw = '';
+    if (data.content && data.content.length > 0) {
+      for (var i = 0; i < data.content.length; i++) {
+        if (data.content[i].text) raw += data.content[i].text;
+      }
     }
-  ]
-}
-Include 3 works only.`;
-
-Return ONLY valid JSON with no markdown fences, no preamble, no trailing text. Use this exact structure:
-{
-  "name": "Full name as commonly known",
-  "dates": "birth–death (or b.year if living)",
-  "era": "Primary era",
-  "movement": "Primary movement",
-  "heroMeta": "Nationality · Era · Primary Movement",
-  "context": "4 substantive sentences of historical and socio-cultural context. What conditions — political, intellectual, social — produced this artist and their concerns? Be specific.",
-  "theory": "4 sentences on critical and theoretical framing. Which thinkers, critics, or philosophical traditions illuminate this work? How has meaning shifted across critical frameworks?",
-  "technique": "4 sentences on material and technical practice. What specific methods, materials, or formal decisions characterise this body of work? How does the technical connect to the conceptual?",
-  "movements": ["Primary movement", "Secondary classification", "Broader context"],
-  "influences": ["Name · nature of influence", "Name · nature of influence", "Name · nature of influence", "Name · nature of influence"],
-  "critics": ["Name · key text or contribution", "Name · key text or contribution", "Name · key text or contribution"],
-  "relations": ["Artist name", "Artist name", "Artist name", "Artist name", "Artist name"],
-  "works": [
-    {
-      "title": "Work title",
-      "year": "Year",
-      "medium": "Medium and support",
-      "color": "#hex evocative of this work's dominant palette",
-      "technical": "2-3 sentences of formal and material analysis of this specific work.",
-      "contextual": "2-3 sentences on what this work means in its intellectual and historical moment.",
-      "critical": "2-3 sentences on how this work has been received and interpreted. Cite specific critics where relevant."
-    }
-  ]
-}
-Include 4-5 key works. Hex colors should genuinely reflect each work's palette.`;
-
-  try {
-    const res = await fetch('/api/claude', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: [{ role: 'user', content: prompt }] })
-    });
-
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-    const data = await res.json();
-    const raw = (data.content || []).map(b => b.text || '').join('');
-    const clean = raw.replace(/```json|```/g, '').trim();
-    const artist = JSON.parse(clean);
-
+    raw = raw.replace(/```json/g, '').replace(/```/g, '').trim();
+    var artist = JSON.parse(raw);
     currentArtist = artist;
     renderArtist(artist);
-
-    if (!studied.find(a => a.name === artist.name)) {
-      studied.unshift({ name: artist.name, era: artist.era });
+    var found = false;
+    for (var j = 0; j < studied.length; j++) {
+      if (studied[j].name === artist.name) { found = true; break; }
+    }
+    if (!found) {
+      studied.unshift({name: artist.name, era: artist.era});
       renderStudied();
     }
-
-  } catch(e) {
+  })
+  .catch(function(e) {
     console.error(e);
     show('errorView');
-  }
+  });
 }
 
 function renderArtist(a) {
   show('artistView');
-  document.getElementById('aMeta').textContent = a.heroMeta || a.era;
-  document.getElementById('aName').textContent = a.name;
-  document.getElementById('aDates').textContent = a.dates;
-  document.getElementById('kContext').innerHTML = a.context || '—';
-  document.getElementById('kTheory').innerHTML = a.theory || '—';
-  document.getElementById('kTech').innerHTML = a.technique || '—';
+  document.getElementById('aMeta').textContent = a.heroMeta || a.era || '';
+  document.getElementById('aName').textContent = a.name || '';
+  document.getElementById('aDates').textContent = a.dates || '';
+  document.getElementById('kContext').textContent = a.context || '';
+  document.getElementById('kTheory').textContent = a.theory || '';
+  document.getElementById('kTech').textContent = a.technique || '';
 
-  document.getElementById('abMovement').innerHTML = (a.movements || []).map(m =>
-    `<div class="ab-item"><strong>${m}</strong></div>`).join('') || '—';
+  var movHtml = '';
+  if (a.movements) for (var i = 0; i < a.movements.length; i++) movHtml += '<div class="ab-item"><strong>' + a.movements[i] + '</strong></div>';
+  document.getElementById('abMovement').innerHTML = movHtml || '—';
 
-  document.getElementById('abInfluence').innerHTML = (a.influences || []).map(i => {
-    const p = i.split(' · ');
-    return `<div class="ab-item"><strong>${p[0]}</strong>${p[1] ? `<span>${p[1]}</span>` : ''}</div>`;
-  }).join('') || '—';
+  var infHtml = '';
+  if (a.influences) for (var i = 0; i < a.influences.length; i++) {
+    var parts = a.influences[i].split(', ');
+    infHtml += '<div class="ab-item"><strong>' + parts[0] + '</strong>' + (parts[1] ? '<span>' + parts[1] + '</span>' : '') + '</div>';
+  }
+  document.getElementById('abInfluence').innerHTML = infHtml || '—';
 
-  document.getElementById('abCritics').innerHTML = (a.critics || []).map(c => {
-    const p = c.split(' · ');
-    return `<div class="ab-item"><strong>${p[0]}</strong>${p[1] ? `<span>${p[1]}</span>` : ''}</div>`;
-  }).join('') || '—';
+  var criHtml = '';
+  if (a.critics) for (var i = 0; i < a.critics.length; i++) {
+    var parts = a.critics[i].split(', ');
+    criHtml += '<div class="ab-item"><strong>' + parts[0] + '</strong>' + (parts[1] ? '<span>' + parts[1] + '</span>' : '') + '</div>';
+  }
+  document.getElementById('abCritics').innerHTML = criHtml || '—';
 
-  document.getElementById('abRelations').innerHTML = (a.relations || []).map(r =>
-    `<span class="rel-tag" onclick="loadArtist('${r.replace(/'/g,"\\'")}')">→ ${r}</span>`
-  ).join('');
+  var relHtml = '';
+  if (a.relations) for (var i = 0; i < a.relations.length; i++) {
+    relHtml += '<span class="rel-tag" onclick="loadArtist(\'' + a.relations[i].replace(/'/g, "\\'") + '\')">' + a.relations[i] + '</span>';
+  }
+  document.getElementById('abRelations').innerHTML = relHtml;
 
-  const isFav = favourites.has(a.name);
-  const fb = document.getElementById('favBtn');
-  fb.textContent = isFav ? '★ Favourited' : '+ Mark as Favourite';
+  var isFav = favourites[a.name];
+  var fb = document.getElementById('favBtn');
+  fb.textContent = isFav ? 'Favourited' : '+ Mark as Favourite';
   fb.className = 'btn btn-fav' + (isFav ? ' on' : '');
 
   renderWorks(a.works || []);
   document.getElementById('workDetail').classList.remove('on');
-  document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+  document.querySelector('.main').scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function renderWorks(works) {
-  document.getElementById('worksGrid').innerHTML = works.map((w, i) => `
-    <div class="work-card" id="wc${i}" onclick="selectWork(${i})">
-      <div class="work-img" style="background:${w.color || '#1e1c18'};">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="opacity:0.22;">
-          <rect x="3" y="3" width="22" height="22" rx="1" stroke="white" stroke-width="1"/>
-          <path d="M3 20L9 13.5L14 18.5L18 12L25 20" stroke="white" stroke-width="1" fill="none"/>
-          <circle cx="19" cy="9" r="2.5" stroke="white" stroke-width="1"/>
-        </svg>
-      </div>
-      <div class="work-info">
-        <div class="work-title">${w.title}</div>
-        <div class="work-yr">${w.year} · ${w.medium}</div>
-      </div>
-    </div>`).join('');
+  var html = '';
+  for (var i = 0; i < works.length; i++) {
+    var w = works[i];
+    var bg = w.color || '#1e1c18';
+    html += '<div class="work-card" id="wc' + i + '" onclick="selectWork(' + i + ')">';
+    html += '<div class="work-img" style="background:' + bg + ';"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="opacity:0.22;"><rect x="3" y="3" width="22" height="22" rx="1" stroke="white" stroke-width="1"/><path d="M3 20L9 13.5L14 18.5L18 12L25 20" stroke="white" stroke-width="1" fill="none"/><circle cx="19" cy="9" r="2.5" stroke="white" stroke-width="1"/></svg></div>';
+    html += '<div class="work-info"><div class="work-title">' + w.title + '</div><div class="work-yr">' + w.year + ' · ' + w.medium + '</div></div>';
+    html += '</div>';
+  }
+  document.getElementById('worksGrid').innerHTML = html;
 }
 
 function selectWork(i) {
-  const w = currentArtist.works[i];
-  document.querySelectorAll('.work-card').forEach((c, idx) => c.classList.toggle('sel', idx === i));
+  var w = currentArtist.works[i];
+  var cards = document.querySelectorAll('.work-card');
+  for (var j = 0; j < cards.length; j++) cards[j].classList.remove('sel');
+  document.getElementById('wc' + i).classList.add('sel');
   document.getElementById('wdTitle').textContent = w.title;
-  document.getElementById('wdSub').textContent = `${w.year} · ${w.medium}`;
-  document.getElementById('wdTech').textContent = w.technical || '—';
-  document.getElementById('wdContext').textContent = w.contextual || '—';
-  document.getElementById('wdCritical').textContent = w.critical || '—';
-  const wd = document.getElementById('workDetail');
+  document.getElementById('wdSub').textContent = w.year + ' · ' + w.medium;
+  document.getElementById('wdTech').textContent = w.technical || '';
+  document.getElementById('wdContext').textContent = w.contextual || '';
+  document.getElementById('wdCritical').textContent = w.critical || '';
+  var wd = document.getElementById('workDetail');
   wd.classList.add('on');
-  wd.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  wd.scrollIntoView({behavior: 'smooth', block: 'nearest'});
 }
 
 function toggleFav() {
   if (!currentArtist) return;
-  const name = currentArtist.name;
-  if (favourites.has(name)) favourites.delete(name);
-  else favourites.add(name);
-  const isFav = favourites.has(name);
-  const fb = document.getElementById('favBtn');
-  fb.textContent = isFav ? '★ Favourited' : '+ Mark as Favourite';
+  var name = currentArtist.name;
+  favourites[name] = !favourites[name];
+  var isFav = favourites[name];
+  var fb = document.getElementById('favBtn');
+  fb.textContent = isFav ? 'Favourited' : '+ Mark as Favourite';
   fb.className = 'btn btn-fav' + (isFav ? ' on' : '');
   renderStudied();
 }
 
 function renderStudied() {
-  const el = document.getElementById('studiedList');
+  var el = document.getElementById('studiedList');
   if (!studied.length) {
     el.innerHTML = '<div class="empty-note">Artists you study will appear here.</div>';
     return;
   }
-  el.innerHTML = studied.map(a => `
-    <div class="studied-artist" onclick="loadArtist('${a.name.replace(/'/g,"\\'")}')">
-      <div>
-        <div class="sn">${a.name}</div>
-        <div class="se">${a.era || ''}</div>
-      </div>
-      <div class="fav-pip ${favourites.has(a.name) ? 'on' : ''}"></div>
-    </div>`).join('');
+  var html = '';
+  for (var i = 0; i < studied.length; i++) {
+    var a = studied[i];
+    html += '<div class="studied-artist" onclick="loadArtist(\'' + a.name.replace(/'/g, "\\'") + '\')">';
+    html += '<div><div class="sn">' + a.name + '</div><div class="se">' + (a.era || '') + '</div></div>';
+    html += '<div class="fav-pip' + (favourites[a.name] ? ' on' : '') + '"></div>';
+    html += '</div>';
+  }
+  el.innerHTML = html;
 }
 
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', function(e) {
   if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
     e.preventDefault();
     document.getElementById('searchInput').focus();
