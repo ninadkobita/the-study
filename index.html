@@ -540,17 +540,6 @@ function fetchWorkImage(title, index) {
     })
     .catch(function() {});
 }
-  var html = '';
-  for (var i = 0; i < works.length; i++) {
-    var w = works[i];
-    var bg = w.color || '#1e1c18';
-    html += '<div class="work-card" id="wc' + i + '" onclick="selectWork(' + i + ')">';
-    html += '<div class="work-img" style="background:' + bg + ';"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="opacity:0.22;"><rect x="3" y="3" width="22" height="22" rx="1" stroke="white" stroke-width="1"/><path d="M3 20L9 13.5L14 18.5L18 12L25 20" stroke="white" stroke-width="1" fill="none"/><circle cx="19" cy="9" r="2.5" stroke="white" stroke-width="1"/></svg></div>';
-    html += '<div class="work-info"><div class="work-title">' + w.title + '</div><div class="work-yr">' + w.year + ' · ' + w.medium + '</div></div>';
-    html += '</div>';
-  }
-  document.getElementById('worksGrid').innerHTML = html;
-}
 
 function selectWork(i) {
   var w = currentArtist.works[i];
