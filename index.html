@@ -642,7 +642,35 @@ async function loadArtist(name) {
   show('loadingView');
   document.getElementById('loadingMsg').textContent = `Building entry for ${name}…`;
 
-  const prompt = `You are a deeply knowledgeable art historian writing for a serious, well-read layperson — someone with genuine depth of interest but not an academic specialist. Write a rigorous, contextual knowledge entry for the artist: ${name}.
+  const prompt = `You are an art historian. Write a knowledge entry for: ${name}.
+
+Return ONLY valid JSON, no markdown, no extra text:
+{
+  "name": "Full name",
+  "dates": "birth–death",
+  "era": "Era",
+  "movement": "Movement",
+  "heroMeta": "Nationality · Era · Movement",
+  "context": "2 sentences of historical context.",
+  "theory": "2 sentences of critical and theoretical framing.",
+  "technique": "2 sentences on technical practice.",
+  "movements": ["Movement 1", "Movement 2"],
+  "influences": ["Name · influence", "Name · influence", "Name · influence"],
+  "critics": ["Name · contribution", "Name · contribution"],
+  "relations": ["Artist", "Artist", "Artist", "Artist"],
+  "works": [
+    {
+      "title": "Title",
+      "year": "Year",
+      "medium": "Medium",
+      "color": "#hex",
+      "technical": "1 sentence technical analysis.",
+      "contextual": "1 sentence contextual reading.",
+      "critical": "1 sentence critical reception."
+    }
+  ]
+}
+Include 3 works only.`;
 
 Return ONLY valid JSON with no markdown fences, no preamble, no trailing text. Use this exact structure:
 {
