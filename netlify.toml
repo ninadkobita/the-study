@@ -1,9 +1,7 @@
 [build]
   publish = "."
+  edge_functions = "edge-functions"
 
 [[edge_functions]]
   path = "/api/claude"
   function = "claude"
-
-[edge_functions]
-  directory = "edge-functions"
